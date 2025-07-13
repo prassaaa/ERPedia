@@ -39,7 +39,7 @@
                     <div class="dropdown-body">
                         <a href="#" class="notification-item">
                             <div class="notification-icon bg-primary">
-                                <span class="material-icons">person_add</span>
+                                <i class="material-icons">person_add</i>
                             </div>
                             <div class="notification-content">
                                 <h6>New user registered</h6>
@@ -50,7 +50,7 @@
                         
                         <a href="#" class="notification-item">
                             <div class="notification-icon bg-success">
-                                <span class="material-icons">check_circle</span>
+                                <i class="material-icons">check_circle</i>
                             </div>
                             <div class="notification-content">
                                 <h6>Leave request approved</h6>
@@ -61,7 +61,7 @@
                         
                         <a href="#" class="notification-item">
                             <div class="notification-icon bg-warning">
-                                <span class="material-icons">inventory</span>
+                                <i class="material-icons">inventory</i>
                             </div>
                             <div class="notification-content">
                                 <h6>Low stock alert</h6>
