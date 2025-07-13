@@ -145,10 +145,10 @@
                 <!-- Profile Dropdown Menu -->
                 <div class="dropdown-menu profile-menu">
                     <div class="dropdown-header">
-                        <div class="user-info">
+                        <div class="profile-info-header">
                             <img src="{{ auth()->user()->avatar ?? asset('assets/images/profile/user-1.jpg') }}" 
-                                 alt="Profile" class="user-avatar">
-                            <div class="user-details">
+                                 alt="Profile" class="profile-avatar-large">
+                            <div class="profile-details">
                                 <h6>{{ auth()->user()->name ?? 'User' }}</h6>
                                 <p>{{ auth()->user()->email ?? 'user@example.com' }}</p>
                             </div>
@@ -156,32 +156,32 @@
                     </div>
                     
                     <div class="dropdown-body">
-                        <a href="{{ route('profile.edit') }}" class="dropdown-item">
-                            <span class="material-icons">person</span>
+                        <a href="{{ route('profile.edit') }}" class="profile-menu-item">
+                            <i class="material-icons">person</i>
                             <span>My Profile</span>
                         </a>
                         
-                        <a href="#" class="dropdown-item">
-                            <span class="material-icons">account_balance_wallet</span>
+                        <a href="#" class="profile-menu-item">
+                            <i class="material-icons">account_balance_wallet</i>
                             <span>My Account</span>
                         </a>
                         
-                        <a href="#" class="dropdown-item">
-                            <span class="material-icons">task</span>
+                        <a href="#" class="profile-menu-item">
+                            <i class="material-icons">task</i>
                             <span>My Tasks</span>
                         </a>
                         
-                        <div class="dropdown-divider"></div>
-                        
-                        <a href="#" class="dropdown-item">
-                            <span class="material-icons">settings</span>
+                        <a href="#" class="profile-menu-item">
+                            <i class="material-icons">settings</i>
                             <span>Account Settings</span>
                         </a>
                         
+                        <div class="profile-divider"></div>
+                        
                         <form method="POST" action="{{ route('logout') }}" class="logout-form">
                             @csrf
-                            <button type="submit" class="dropdown-item logout-btn">
-                                <span class="material-icons">logout</span>
+                            <button type="submit" class="profile-menu-item logout-item">
+                                <i class="material-icons">logout</i>
                                 <span>Logout</span>
                             </button>
                         </form>
