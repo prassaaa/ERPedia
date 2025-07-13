@@ -634,3 +634,14 @@
         page-break-inside: avoid;
     }
 }
+
+/* ===================================
+   HEADER DROPDOWN FUNCTIONALITY FIX
+   =================================== */
+
+/* Dropdown trigger - this is the key CSS that makes hover work */
+.header-item:hover .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}

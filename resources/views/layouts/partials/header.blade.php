@@ -82,6 +82,58 @@
                     <i class="material-icons">mail</i>
                     <span class="message-badge">2</span>
                 </button>
+                
+                <!-- Messages Dropdown -->
+                <div class="dropdown-menu message-menu">
+                    <div class="dropdown-header">
+                        <h6>Messages</h6>
+                        <span class="badge">2 new</span>
+                    </div>
+                    <div class="dropdown-body">
+                        <a href="#" class="message-item">
+                            <div class="message-avatar">
+                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="User" class="avatar-img">
+                                <span class="online-indicator"></span>
+                            </div>
+                            <div class="message-content">
+                                <h6>Sarah Johnson</h6>
+                                <p>Hey! Can we discuss the quarterly report?</p>
+                                <small>5 minutes ago</small>
+                            </div>
+                            <div class="message-status">
+                                <span class="unread-dot"></span>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="message-item">
+                            <div class="message-avatar">
+                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="User" class="avatar-img">
+                            </div>
+                            <div class="message-content">
+                                <h6>Mike Chen</h6>
+                                <p>The new inventory system is ready for testing</p>
+                                <small>2 hours ago</small>
+                            </div>
+                            <div class="message-status">
+                                <span class="unread-dot"></span>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="message-item read">
+                            <div class="message-avatar">
+                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="User" class="avatar-img">
+                            </div>
+                            <div class="message-content">
+                                <h6>Emma Wilson</h6>
+                                <p>Thanks for the approval! I'll start working on it.</p>
+                                <small>1 day ago</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dropdown-footer">
+                        <a href="#" class="view-all-btn">View All Messages</a>
+                    </div>
+                </div>
             </div>
             
             <!-- Profile Dropdown -->
