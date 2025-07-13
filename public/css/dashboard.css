@@ -964,3 +964,56 @@
     border: 1px solid var(--border-color);
 }
 
+
+/* ===================================
+   CUSTOM SCROLLBAR FOR SIDEBAR
+   =================================== */
+
+/* Custom scrollbar untuk sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(93, 135, 255, 0.15);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(93, 135, 255, 0.35);
+}
+
+/* Untuk Firefox */
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(93, 135, 255, 0.15) transparent;
+}
+
+/* Custom scrollbar untuk dropdown menus juga */
+.dropdown-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.dropdown-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dropdown-body::-webkit-scrollbar-thumb {
+    background: rgba(93, 135, 255, 0.2);
+    border-radius: 2px;
+}
+
+.dropdown-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(93, 135, 255, 0.4);
+}
+
+/* Untuk dropdown Firefox */
+.dropdown-body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(93, 135, 255, 0.2) transparent;
+}
