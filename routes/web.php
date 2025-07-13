@@ -62,6 +62,22 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{department}/edit', function (\App\Models\Department $department) { return view('departments.edit', compact('department')); })->name('edit');
     });
 
+    // Product Categories Management
+    Route::prefix('product-categories')->name('product-categories.')->group(function () {
+        Route::get('/', function () { return view('product-categories.index'); })->name('index');
+        Route::get('/create', function () { return view('product-categories.create'); })->name('create');
+        Route::get('/{productCategory}', function (\App\Models\ProductCategory $productCategory) { return view('product-categories.show', compact('productCategory')); })->name('show');
+        Route::get('/{productCategory}/edit', function (\App\Models\ProductCategory $productCategory) { return view('product-categories.edit', compact('productCategory')); })->name('edit');
+    });
+
+    // Products Management
+    Route::prefix('products')->name('products.')->group(function () {
+        Route::get('/', function () { return view('products.index'); })->name('index');
+        Route::get('/create', function () { return view('products.create'); })->name('create');
+        Route::get('/{product}', function (\App\Models\Product $product) { return view('products.show', compact('product')); })->name('show');
+        Route::get('/{product}/edit', function (\App\Models\Product $product) { return view('products.edit', compact('product')); })->name('edit');
+    });
+
     // Leave Management
     Route::prefix('leave-requests')->name('leave-requests.')->group(function () {
         Route::get('/', function () { return view('leave-requests.index'); })->name('index');
@@ -70,13 +86,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{leaveRequest}/edit', function () { return view('leave-requests.edit'); })->name('edit');
     });
 
-    // Product Management
-    Route::prefix('products')->name('products.')->group(function () {
-        Route::get('/', function () { return view('products.index'); })->name('index');
-        Route::get('/create', function () { return view('products.create'); })->name('create');
-        Route::get('/{product}', function () { return view('products.show'); })->name('show');
-        Route::get('/{product}/edit', function () { return view('products.edit'); })->name('edit');
-    });
+
 
     // Warehouse Management
     Route::prefix('warehouses')->name('warehouses.')->group(function () {
