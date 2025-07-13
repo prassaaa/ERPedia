@@ -42,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', function () { return view('users.index'); })->name('index');
         Route::get('/create', function () { return view('users.create'); })->name('create');
-        Route::get('/{user}', function () { return view('users.show'); })->name('show');
-        Route::get('/{user}/edit', function () { return view('users.edit'); })->name('edit');
+        Route::get('/{user}', function (\App\Models\User $user) { return view('users.show', compact('user')); })->name('show');
+        Route::get('/{user}/edit', function (\App\Models\User $user) { return view('users.edit', compact('user')); })->name('edit');
     });
 
     // Leave Management
