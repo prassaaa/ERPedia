@@ -24,6 +24,9 @@
     <!-- Livewire Styles -->
     @livewireStyles
     
+    <!-- Components CSS -->
+    <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+    
     <!-- Custom Styles -->
     <style>
         :root {
@@ -39,6 +42,8 @@
             --text-secondary: #5A6A85;
             --sidebar-width: 270px;
             --header-height: 70px;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
         }
         
         * {
@@ -52,6 +57,7 @@
             background-color: var(--light-color);
             color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .main-wrapper {
@@ -68,6 +74,7 @@
             background-color: transparent;
             margin-left: var(--sidebar-width);
             transition: margin-left 0.3s ease;
+            min-height: 100vh;
         }
         
         .page-wrapper.sidebar-collapsed {
@@ -75,18 +82,20 @@
         }
         
         .content-container {
-            padding: 20px;
-            max-width: 1200px;
+            padding: 24px;
+            max-width: 1400px;
             margin: 0 auto;
             width: 100%;
+            flex: 1;
         }
         
         .content-area {
             min-height: calc(100vh - var(--header-height) - 120px);
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-            padding: 24px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 32px;
+            border: 1px solid var(--border-color);
         }
         
         /* Responsive */
@@ -96,17 +105,34 @@
             }
             
             .content-container {
-                padding: 15px;
+                padding: 20px;
+            }
+            
+            .content-area {
+                padding: 24px;
+                border-radius: 12px;
             }
         }
         
         @media (max-width: 768px) {
             .content-container {
-                padding: 10px;
+                padding: 16px;
+            }
+            
+            .content-area {
+                padding: 20px;
+                border-radius: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-container {
+                padding: 12px;
             }
             
             .content-area {
                 padding: 16px;
+                border-radius: 8px;
             }
         }
     </style>

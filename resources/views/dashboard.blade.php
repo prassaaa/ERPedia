@@ -17,13 +17,13 @@
             <!-- Total Employees -->
             <div class="stat-card">
                 <div class="stat-icon bg-primary">
-                    <span class="material-icons">people</span>
+                    <i class="material-icons">people</i>
                 </div>
                 <div class="stat-content">
-                    <h3 class="stat-number">{{ $totalEmployees ?? 0 }}</h3>
+                    <h3 class="stat-number">{{ number_format($totalEmployees ?? 0) }}</h3>
                     <p class="stat-label">Total Employees</p>
                     <div class="stat-change positive">
-                        <span class="material-icons">trending_up</span>
+                        <i class="material-icons">trending_up</i>
                         <span>+12% from last month</span>
                     </div>
                 </div>
@@ -32,13 +32,13 @@
             <!-- Active Projects -->
             <div class="stat-card">
                 <div class="stat-icon bg-success">
-                    <span class="material-icons">assignment</span>
+                    <i class="material-icons">assignment</i>
                 </div>
                 <div class="stat-content">
-                    <h3 class="stat-number">{{ $activeProjects ?? 0 }}</h3>
+                    <h3 class="stat-number">{{ number_format($activeProjects ?? 0) }}</h3>
                     <p class="stat-label">Active Projects</p>
                     <div class="stat-change positive">
-                        <span class="material-icons">trending_up</span>
+                        <i class="material-icons">trending_up</i>
                         <span>+8% from last month</span>
                     </div>
                 </div>
@@ -47,13 +47,13 @@
             <!-- Total Revenue -->
             <div class="stat-card">
                 <div class="stat-icon bg-warning">
-                    <span class="material-icons">attach_money</span>
+                    <i class="material-icons">attach_money</i>
                 </div>
                 <div class="stat-content">
                     <h3 class="stat-number">${{ number_format($totalRevenue ?? 0) }}</h3>
                     <p class="stat-label">Total Revenue</p>
                     <div class="stat-change positive">
-                        <span class="material-icons">trending_up</span>
+                        <i class="material-icons">trending_up</i>
                         <span>+15% from last month</span>
                     </div>
                 </div>
@@ -62,13 +62,13 @@
             <!-- Pending Tasks -->
             <div class="stat-card">
                 <div class="stat-icon bg-error">
-                    <span class="material-icons">pending_actions</span>
+                    <i class="material-icons">pending_actions</i>
                 </div>
                 <div class="stat-content">
-                    <h3 class="stat-number">{{ $pendingTasks ?? 0 }}</h3>
+                    <h3 class="stat-number">{{ number_format($pendingTasks ?? 0) }}</h3>
                     <p class="stat-label">Pending Tasks</p>
                     <div class="stat-change negative">
-                        <span class="material-icons">trending_down</span>
+                        <i class="material-icons">trending_down</i>
                         <span>-5% from last month</span>
                     </div>
                 </div>
@@ -90,9 +90,9 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="chart-placeholder">
+                    <div class="chart-placeholder" id="sales-chart">
                         <div class="chart-icon">
-                            <span class="material-icons">show_chart</span>
+                            <i class="material-icons">show_chart</i>
                         </div>
                         <p>Sales chart will be displayed here</p>
                     </div>
@@ -109,13 +109,13 @@
                         <div class="earnings-amount">
                             <h2>${{ number_format($monthlyEarnings ?? 0) }}</h2>
                             <div class="earnings-change positive">
-                                <span class="material-icons">trending_up</span>
+                                <i class="material-icons">trending_up</i>
                                 <span>+9%</span>
                             </div>
                         </div>
                         <div class="earnings-chart">
                             <div class="mini-chart-placeholder">
-                                <span class="material-icons">bar_chart</span>
+                                <i class="material-icons">bar_chart</i>
                             </div>
                         </div>
                     </div>
@@ -127,5 +127,54 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+@endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add some interactive elements
+    const statCards = document.querySelectorAll('.stat-card');
+    const chartPlaceholder = document.getElementById('sales-chart');
+    
+    // Add hover effects for stat cards
+    statCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Period selector functionality
+    const periodSelect = document.querySelector('.period-select');
+    if (periodSelect) {
+        periodSelect.addEventListener('change', function() {
+            // Here you would normally update the chart data
+            console.log('Period changed to:', this.value);
+            
+            // Add a loading effect
+            if (chartPlaceholder) {
+                chartPlaceholder.style.opacity = '0.5';
+                setTimeout(() => {
+                    chartPlaceholder.style.opacity = '1';
+                }, 500);
+            }
+        });
+    }
+    
+    // Simulate real-time updates (optional)
+    setInterval(() => {
+        const changes = document.querySelectorAll('.stat-change');
+        changes.forEach(change => {
+            change.style.animation = 'pulse 0.5s ease-in-out';
+            setTimeout(() => {
+                change.style.animation = '';
+            }, 500);
+        });
+    }, 30000); // Update every 30 seconds
+});
+</script>
 @endpush
 @endsection

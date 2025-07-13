@@ -7,7 +7,7 @@
                 <span class="logo-text">ERPedia</span>
             </a>
         </div>
-        
+
         <!-- Navigation Menu -->
         <nav class="sidebar-nav">
             <ul class="nav-list">
@@ -15,105 +15,93 @@
                 <li class="nav-label">
                     <span>Home</span>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="nav-link">
-                        <span class="material-icons nav-icon">dashboard</span>
+                        <i class="material-icons nav-icon">dashboard</i>
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                
+
                 <!-- HRM Section -->
                 <li class="nav-label">
                     <span>Human Resources</span>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
                     <a href="{{ route('users.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">people</span>
+                        <i class="material-icons nav-icon">people</i>
                         <span class="nav-text">Employees</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('departments.*') ? 'active' : '' }}">
                     <a href="{{ route('departments.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">business</span>
+                        <i class="material-icons nav-icon">business</i>
                         <span class="nav-text">Departments</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('leave-requests.*') ? 'active' : '' }}">
                     <a href="{{ route('leave-requests.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">event_available</span>
+                        <i class="material-icons nav-icon">event_available</i>
                         <span class="nav-text">Leave Management</span>
                     </a>
                 </li>
-                
+
                 <!-- Inventory Section -->
                 <li class="nav-label">
                     <span>Inventory</span>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('products.*') ? 'active' : '' }}">
                     <a href="{{ route('products.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">inventory</span>
+                        <i class="material-icons nav-icon">inventory</i>
                         <span class="nav-text">Products</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('warehouses.*') ? 'active' : '' }}">
                     <a href="{{ route('warehouses.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">warehouse</span>
+                        <i class="material-icons nav-icon">warehouse</i>
                         <span class="nav-text">Warehouses</span>
                     </a>
                 </li>
-                
+
                 <!-- Accounting Section -->
                 <li class="nav-label">
                     <span>Accounting</span>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('chart-of-accounts.*') ? 'active' : '' }}">
                     <a href="{{ route('chart-of-accounts.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">account_balance</span>
+                        <i class="material-icons nav-icon">account_balance</i>
                         <span class="nav-text">Chart of Accounts</span>
                     </a>
                 </li>
-                
+
                 <!-- Settings Section -->
                 <li class="nav-label">
                     <span>Settings</span>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('companies.*') ? 'active' : '' }}">
                     <a href="{{ route('companies.index') }}" class="nav-link">
-                        <span class="material-icons nav-icon">business_center</span>
+                        <i class="material-icons nav-icon">business_center</i>
                         <span class="nav-text">Companies</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                     <a href="{{ route('profile.edit') }}" class="nav-link">
-                        <span class="material-icons nav-icon">settings</span>
+                        <i class="material-icons nav-icon">settings</i>
                         <span class="nav-text">Profile Settings</span>
                     </a>
                 </li>
             </ul>
         </nav>
-        
-        <!-- Upgrade Card (Optional) -->
-        <div class="sidebar-upgrade">
-            <div class="upgrade-card">
-                <div class="upgrade-icon">
-                    <span class="material-icons">rocket_launch</span>
-                </div>
-                <h4>Upgrade to Pro</h4>
-                <p>Get more features and unlimited access</p>
-                <button class="upgrade-btn">Upgrade Now</button>
-            </div>
-        </div>
     </div>
-    
+
     <!-- Mobile Overlay -->
     <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
 </aside>
@@ -277,11 +265,11 @@
     .sidebar {
         transform: translateX(-100%);
     }
-    
+
     .sidebar.mobile-open {
         transform: translateX(0);
     }
-    
+
     .sidebar.mobile-open .sidebar-overlay {
         display: block;
         position: fixed;
@@ -298,7 +286,7 @@
     .sidebar {
         width: 280px;
     }
-    
+
     .sidebar.mobile-open .sidebar-overlay {
         left: 280px;
         width: calc(100vw - 280px);

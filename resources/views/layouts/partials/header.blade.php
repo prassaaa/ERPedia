@@ -4,18 +4,18 @@
         <div class="header-left">
             <!-- Sidebar Toggle -->
             <button class="sidebar-toggle" onclick="toggleSidebar()">
-                <span class="material-icons">menu</span>
+                <i class="material-icons">menu</i>
             </button>
             
             <!-- Mobile Sidebar Toggle -->
             <button class="mobile-sidebar-toggle" onclick="toggleMobileSidebar()">
-                <span class="material-icons">menu</span>
+                <i class="material-icons">menu</i>
             </button>
             
             <!-- Search Bar -->
             <div class="search-container">
                 <div class="search-input-wrapper">
-                    <span class="material-icons search-icon">search</span>
+                    <i class="material-icons search-icon">search</i>
                     <input type="text" class="search-input" placeholder="Search anything...">
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <!-- Notifications -->
             <div class="header-item notification-dropdown">
                 <button class="header-btn notification-btn">
-                    <span class="material-icons">notifications</span>
+                    <i class="material-icons">notifications</i>
                     <span class="notification-badge">3</span>
                 </button>
                 
@@ -79,7 +79,7 @@
             <!-- Messages -->
             <div class="header-item message-dropdown">
                 <button class="header-btn message-btn">
-                    <span class="material-icons">mail</span>
+                    <i class="material-icons">mail</i>
                     <span class="message-badge">2</span>
                 </button>
             </div>
@@ -93,7 +93,7 @@
                         <span class="profile-name">{{ auth()->user()->name ?? 'User' }}</span>
                         <span class="profile-role">{{ auth()->user()->getRoleNames()->first() ?? 'Employee' }}</span>
                     </div>
-                    <span class="material-icons dropdown-arrow">keyboard_arrow_down</span>
+                    <i class="material-icons dropdown-arrow">keyboard_arrow_down</i>
                 </button>
                 
                 <!-- Profile Dropdown Menu -->
