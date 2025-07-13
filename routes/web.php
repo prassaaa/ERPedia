@@ -46,6 +46,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{user}/edit', function (\App\Models\User $user) { return view('users.edit', compact('user')); })->name('edit');
     });
 
+    // Company Management
+    Route::prefix('companies')->name('companies.')->group(function () {
+        Route::get('/', function () { return view('companies.index'); })->name('index');
+        Route::get('/create', function () { return view('companies.create'); })->name('create');
+        Route::get('/{company}', function (\App\Models\Company $company) { return view('companies.show', compact('company')); })->name('show');
+        Route::get('/{company}/edit', function (\App\Models\Company $company) { return view('companies.edit', compact('company')); })->name('edit');
+    });
+
     // Leave Management
     Route::prefix('leave-requests')->name('leave-requests.')->group(function () {
         Route::get('/', function () { return view('leave-requests.index'); })->name('index');
