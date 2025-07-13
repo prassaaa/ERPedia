@@ -92,36 +92,30 @@
                     <div class="dropdown-body">
                         <a href="#" class="message-item">
                             <div class="message-avatar">
-                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="User" class="avatar-img">
-                                <span class="online-indicator"></span>
+                                <div class="avatar-circle">SJ</div>
+                                <span class="online-status"></span>
                             </div>
                             <div class="message-content">
                                 <h6>Sarah Johnson</h6>
                                 <p>Hey! Can we discuss the quarterly report?</p>
                                 <small>5 minutes ago</small>
                             </div>
-                            <div class="message-status">
-                                <span class="unread-dot"></span>
-                            </div>
                         </a>
                         
                         <a href="#" class="message-item">
                             <div class="message-avatar">
-                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="User" class="avatar-img">
+                                <div class="avatar-circle">MC</div>
                             </div>
                             <div class="message-content">
                                 <h6>Mike Chen</h6>
                                 <p>The new inventory system is ready for testing</p>
                                 <small>2 hours ago</small>
                             </div>
-                            <div class="message-status">
-                                <span class="unread-dot"></span>
-                            </div>
                         </a>
                         
                         <a href="#" class="message-item read">
                             <div class="message-avatar">
-                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="User" class="avatar-img">
+                                <div class="avatar-circle">EW</div>
                             </div>
                             <div class="message-content">
                                 <h6>Emma Wilson</h6>
