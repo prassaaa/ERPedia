@@ -3,10 +3,13 @@
 @section('title', 'Company Details')
 
 @section('content')
+<div class="dashboard-container">
     @livewire('companies.show', ['company' => $company])
+</div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
 /* Company Show/Detail Styles */
 .company-show {
@@ -316,7 +319,7 @@
     .content-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
@@ -327,25 +330,25 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .company-header-info {
         flex-direction: column;
         text-align: center;
         gap: 16px;
     }
-    
+
     .header-actions {
         justify-content: center;
     }
-    
+
     .info-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stat-item {
         justify-content: center;
         text-align: center;
@@ -356,16 +359,16 @@
     .page-title {
         font-size: 24px;
     }
-    
+
     .company-logo {
         width: 60px;
         height: 60px;
     }
-    
+
     .card-body {
         padding: 16px;
     }
-    
+
     .card-header {
         padding: 16px;
     }

@@ -3,10 +3,13 @@
 @section('title', 'Employee Management')
 
 @section('content')
+<div class="dashboard-container">
     @livewire('users.index')
+</div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
 /* Users Index Styles */
 .users-index {
@@ -396,19 +399,19 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .filters-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .action-buttons {
         flex-wrap: wrap;
     }
-    
+
     .data-table {
         font-size: 12px;
     }
-    
+
     .data-table th,
     .data-table td {
         padding: 12px 8px;

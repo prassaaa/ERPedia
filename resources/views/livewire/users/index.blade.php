@@ -1,19 +1,19 @@
-<div class="users-index">
-    <!-- Page Header -->
-    <div class="page-header">
-        <div class="header-content">
-            <div class="header-left">
-                <h1 class="page-title">Employee Management</h1>
-                <p class="page-subtitle">Manage your company employees and their information</p>
-            </div>
-            <div class="header-actions">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">
-                    <span class="material-icons">add</span>
-                    Add Employee
-                </a>
-            </div>
+<div>
+<!-- Page Header -->
+<div class="page-header">
+    <div class="header-content">
+        <div class="header-left">
+            <h1 class="page-title">Employee Management</h1>
+            <p class="page-subtitle">Manage your company employees and their information</p>
+        </div>
+        <div class="header-actions">
+            <a href="{{ route('users.create') }}" class="btn btn-primary">
+                <span class="material-icons">add</span>
+                Add Employee
+            </a>
         </div>
     </div>
+</div>
 
     <!-- Filters Section -->
     <div class="filters-section">

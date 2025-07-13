@@ -1,3 +1,4 @@
+<div>
 <div class="company-create">
     <!-- Page Header -->
     <div class="page-header">
@@ -135,4 +136,5 @@
             </button>
         </div>
     </form>
+</div>
 </div>

@@ -3,10 +3,13 @@
 @section('title', 'Company Management')
 
 @section('content')
+<div class="dashboard-container">
     @livewire('companies.index')
+</div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
 /* Companies Index Styles */
 .companies-index {
@@ -431,29 +434,29 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .filters-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .companies-grid {
         grid-template-columns: 1fr;
         padding: 16px;
         gap: 16px;
     }
-    
+
     .company-card {
         margin: 0;
     }
-    
+
     .company-header {
         padding: 16px;
     }
-    
+
     .company-body {
         padding: 16px;
     }
-    
+
     .company-actions {
         padding: 12px 16px;
         flex-wrap: wrap;

@@ -3,10 +3,13 @@
 @section('title', 'Add New Employee')
 
 @section('content')
+<div class="dashboard-container">
     @livewire('users.create')
+</div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
 /* User Create Form Styles */
 .user-create {
@@ -240,20 +243,20 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .form-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .form-section {
         padding: 24px 20px;
     }
-    
+
     .form-actions {
         padding: 20px;
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
@@ -264,11 +267,11 @@
     .page-title {
         font-size: 24px;
     }
-    
+
     .form-section {
         padding: 20px 16px;
     }
-    
+
     .form-actions {
         padding: 16px;
     }

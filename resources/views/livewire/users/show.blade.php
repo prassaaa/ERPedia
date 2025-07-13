@@ -1,3 +1,4 @@
+<div>
 <div class="user-show">
     <!-- Page Header -->
     <div class="page-header">
@@ -223,4 +224,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

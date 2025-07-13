@@ -1,3 +1,4 @@
+<div>
 <div class="user-edit">
     <!-- Page Header -->
     <div class="page-header">
@@ -174,4 +175,5 @@
             </button>
         </div>
     </form>
+</div>
 </div>

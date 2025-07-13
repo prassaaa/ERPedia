@@ -1,3 +1,4 @@
+<div>
 <div class="user-create">
     <!-- Page Header -->
     <div class="page-header">
@@ -170,4 +171,5 @@
             </button>
         </div>
     </form>
+</div>
 </div>

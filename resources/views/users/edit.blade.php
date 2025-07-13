@@ -3,10 +3,13 @@
 @section('title', 'Edit Employee')
 
 @section('content')
+<div class="dashboard-container">
     @livewire('users.edit', ['user' => $user])
+</div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
 /* User Edit Form Styles - Extends Create Form Styles */
 .user-edit {
@@ -260,25 +263,25 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .form-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .form-section {
         padding: 24px 20px;
     }
-    
+
     .form-actions {
         padding: 20px;
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .avatar-section {
         flex-direction: column;
         gap: 20px;
@@ -289,11 +292,11 @@
     .page-title {
         font-size: 24px;
     }
-    
+
     .form-section {
         padding: 20px 16px;
     }
-    
+
     .form-actions {
         padding: 16px;
     }

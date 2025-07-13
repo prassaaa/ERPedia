@@ -1,19 +1,19 @@
-<div class="companies-index">
-    <!-- Page Header -->
-    <div class="page-header">
-        <div class="header-content">
-            <div class="header-left">
-                <h1 class="page-title">Company Management</h1>
-                <p class="page-subtitle">Manage companies and their information</p>
-            </div>
-            <div class="header-actions">
-                <a href="{{ route('companies.create') }}" class="btn btn-primary">
-                    <span class="material-icons">add</span>
-                    Add Company
-                </a>
-            </div>
+<div>
+<!-- Page Header -->
+<div class="page-header">
+    <div class="header-content">
+        <div class="header-left">
+            <h1 class="page-title">Company Management</h1>
+            <p class="page-subtitle">Manage companies and their information</p>
+        </div>
+        <div class="header-actions">
+            <a href="{{ route('companies.create') }}" class="btn btn-primary">
+                <span class="material-icons">add</span>
+                Add Company
+            </a>
         </div>
     </div>
+</div>
 
     <!-- Filters Section -->
     <div class="filters-section">

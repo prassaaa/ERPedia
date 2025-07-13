@@ -3,10 +3,13 @@
 @section('title', 'Employee Details')
 
 @section('content')
+<div class="dashboard-container">
     @livewire('users.show', ['user' => $user])
+</div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <style>
 /* User Show/Detail Styles */
 .user-show {
@@ -387,7 +390,7 @@
     .content-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
@@ -398,30 +401,30 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .user-header-info {
         flex-direction: column;
         text-align: center;
         gap: 16px;
     }
-    
+
     .header-actions {
         justify-content: center;
     }
-    
+
     .info-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stat-item {
         justify-content: center;
         text-align: center;
     }
-    
+
     .leave-request-item {
         flex-direction: column;
         align-items: flex-start;
@@ -433,16 +436,16 @@
     .page-title {
         font-size: 24px;
     }
-    
+
     .user-header-avatar {
         width: 60px;
         height: 60px;
     }
-    
+
     .card-body {
         padding: 16px;
     }
-    
+
     .card-header {
         padding: 16px;
     }

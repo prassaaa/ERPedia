@@ -1,3 +1,4 @@
+<div>
 <div class="company-edit">
     <!-- Page Header -->
     <div class="page-header">
@@ -139,4 +140,5 @@
             </button>
         </div>
     </form>
+</div>
 </div>

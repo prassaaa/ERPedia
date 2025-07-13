@@ -1,3 +1,4 @@
+<div>
 <div class="company-show">
     <!-- Page Header -->
     <div class="page-header">
@@ -271,4 +272,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
