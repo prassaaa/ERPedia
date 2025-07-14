@@ -11,7 +11,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 
-new #[Layout('components.layouts.auth')] class extends Component {
+new #[Layout('components.layouts.auth.modern')] class extends Component {
     #[Validate('required|string|email')]
     public string $email = '';
 
@@ -19,6 +19,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     public string $password = '';
 
     public bool $remember = false;
+    public bool $showPassword = false;
 
     /**
      * Handle an incoming authentication request.
@@ -33,7 +34,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'email' => __('These credentials do not match our records.'),
             ]);
         }
 
@@ -41,6 +42,14 @@ new #[Layout('components.layouts.auth')] class extends Component {
         Session::regenerate();
 
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+    }
+
+    /**
+     * Toggle password visibility
+     */
+    public function togglePassword(): void
+    {
+        $this->showPassword = !$this->showPassword;
     }
 
     /**
@@ -73,55 +82,100 @@ new #[Layout('components.layouts.auth')] class extends Component {
     }
 }; ?>
 
-<div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
+<div>
+    <!-- Page Title -->
+    <div class="auth-form-title">Welcome Back</div>
+    <p class="auth-form-subtitle">Sign in to your ERPedia account</p>
 
     <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
+    @if (session('status'))
+        <div class="auth-alert auth-alert-success">
+            <i class="material-icons">check_circle</i>
+            <span>{{ session('status') }}</span>
+        </div>
+    @endif
 
-    <form wire:submit="login" class="flex flex-col gap-6">
+    <!-- Validation Errors -->
+    @if ($errors->any())
+        <div class="auth-alert auth-alert-error">
+            <i class="material-icons">error</i>
+            <span>
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
+            </span>
+        </div>
+    @endif
+
+    <form wire:submit="login" class="auth-form">
         <!-- Email Address -->
-        <flux:input
-            wire:model="email"
-            :label="__('Email address')"
-            type="email"
-            required
-            autofocus
-            autocomplete="email"
-            placeholder="email@example.com"
-        />
+        <div class="auth-form-group">
+            <label class="auth-form-label" for="email">Email Address</label>
+            <div class="auth-input-group">
+                <i class="material-icons auth-input-icon">email</i>
+                <input type="email"
+                       id="email"
+                       wire:model="email"
+                       class="auth-form-input"
+                       placeholder="Enter your email address"
+                       required
+                       autofocus
+                       autocomplete="email">
+            </div>
+        </div>
 
         <!-- Password -->
-        <div class="relative">
-            <flux:input
-                wire:model="password"
-                :label="__('Password')"
-                type="password"
-                required
-                autocomplete="current-password"
-                :placeholder="__('Password')"
-                viewable
-            />
+        <div class="auth-form-group">
+            <label class="auth-form-label" for="password">Password</label>
+            <div class="auth-input-group">
+                <i class="material-icons auth-input-icon">lock</i>
+                <input type="{{ $showPassword ? 'text' : 'password' }}"
+                       id="password"
+                       wire:model="password"
+                       class="auth-form-input"
+                       placeholder="Enter your password"
+                       required
+                       autocomplete="current-password">
+                <button type="button"
+                        wire:click="togglePassword"
+                        class="auth-password-toggle">
+                    <i class="material-icons">{{ $showPassword ? 'visibility_off' : 'visibility' }}</i>
+                </button>
+            </div>
+        </div>
 
+        <!-- Remember Me & Forgot Password -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0;">
+            <div class="auth-checkbox-group" style="margin: 0;">
+                <input type="checkbox" id="remember" wire:model="remember" class="auth-checkbox">
+                <label for="remember" class="auth-checkbox-label">Remember me</label>
+            </div>
+            
             @if (Route::has('password.request'))
-                <flux:link class="absolute end-0 top-0 text-sm" :href="route('password.request')" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </flux:link>
+                <a href="{{ route('password.request') }}" class="auth-link" wire:navigate>
+                    Forgot Password?
+                </a>
             @endif
         </div>
 
-        <!-- Remember Me -->
-        <flux:checkbox wire:model="remember" :label="__('Remember me')" />
-
-        <div class="flex items-center justify-end">
-            <flux:button variant="primary" type="submit" class="w-full">{{ __('Log in') }}</flux:button>
-        </div>
+        <!-- Login Button -->
+        <button type="submit" class="auth-btn auth-btn-primary">
+            <span wire:loading.remove style="display: flex; align-items: center; gap: 8px;">
+                <i class="material-icons" style="font-size: 18px;">login</i>
+                Sign In
+            </span>
+            <span wire:loading style="display: none;">
+                <div class="loading-spinner-large" style="width: 16px; height: 16px; margin: 0;"></div>
+                Signing In...
+            </span>
+        </button>
     </form>
 
+    <!-- Register Link -->
     @if (Route::has('register'))
-        <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
-            <span>{{ __('Don\'t have an account?') }}</span>
-            <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
+        <div class="auth-switch-form">
+            <span>Don't have an account? </span>
+            <a href="{{ route('register') }}" class="auth-link" wire:navigate>Create Account</a>
         </div>
     @endif
 </div>

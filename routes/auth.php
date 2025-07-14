@@ -26,6 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
         ->middleware(['signed', 'throttle:6,1'])
         ->name('verification.verify');
+        
+    Route::get('verification-check', function () {
+        return response()->json([
+            'verified' => auth()->user()->hasVerifiedEmail()
+        ]);
+    })->name('verification.check');
 
     Volt::route('confirm-password', 'auth.confirm-password')
         ->name('password.confirm');
